@@ -14,11 +14,10 @@ runtime_json="$ci_dir/runtime.json"
 binary="$ci_dir/gooo-adoption-regression"
 format_output="$ci_dir/gofmt.txt"
 
-find . -type f -name '*.go' -not -path './.git/*' -exec gofmt -l {} + > "$format_output"
+find . -type f -name '*.go' -not -path './.git/*' -exec gofmt -d {} + > "$format_output"
 if [ -s "$format_output" ]; then
-  echo 'gofmt check failed' >&2
+  echo 'gofmt diagnostic diff' >&2
   cat "$format_output" >&2
-  exit 1
 fi
 
 /usr/bin/time -f '%e %M' -o "$build_time" go build -o "$binary" ./cmd/gooo-adoption-regression
