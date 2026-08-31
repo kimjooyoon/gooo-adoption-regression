@@ -1,1 +1,4 @@
 {"event":"BOOTSTRAP","repository":"kimjooyoon/gooo-adoption-regression","record_kind":"single_record_owner","source":"examples/adoption-regression.gooo","contract":"contracts/adoption-regression-denominator-v1.json","corpus":"examples/canonical-corpus.json","repository_writes":0,"local_test_executions":0,"cross_project_required_gates":0}
+{"event":"PR_OPENED","record_kind":"provenance_append","base":"main","head":"release-readiness","fixed_denominator":16,"case_count":12,"artifact_count":7,"repository_writes":0,"local_test_executions":0,"cross_project_required_gates":0}
+{"event":"CI_FAILED","run_id":"33360884027","job_id":"99391861848","stage":"BUILD","reason":"gitignore_pattern_ignored_cmd_directory","record_kind":"failure_provenance_append"}
+{"event":"CI_FIX","run_id":"33360884027","job_id":"99391861848","stage":"BUILD","change":"scope_binary_ignore_pattern_to_repository_root","record_kind":"fix_provenance_append"}
