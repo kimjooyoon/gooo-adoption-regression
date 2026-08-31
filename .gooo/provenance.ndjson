@@ -1,1 +1,2 @@
 {"event":"BOOTSTRAP","repository":"kimjooyoon/gooo-adoption-regression","record_kind":"single_record_owner","source":"examples/adoption-regression.gooo","contract":"contracts/adoption-regression-denominator-v1.json","corpus":"examples/canonical-corpus.json","repository_writes":0,"local_test_executions":0,"cross_project_required_gates":0}
+{"event":"PR_OPENED","record_kind":"provenance_append","base":"main","head":"release-readiness","fixed_denominator":16,"case_count":12,"artifact_count":7,"repository_writes":0,"local_test_executions":0,"cross_project_required_gates":0}
