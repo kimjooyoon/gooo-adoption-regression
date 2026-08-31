@@ -22,7 +22,7 @@ jobs:
         with:
           go-version: '1.27.x'
           cache: true
-      - name: Build, test, and deterministic conformance
+      - name: Format, vet, test, build, and deterministic conformance
         env:
           GH_TOKEN: ${{ github.token }}
         run: bash scripts/ci-conformance.sh

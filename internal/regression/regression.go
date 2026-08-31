@@ -59,16 +59,16 @@ var RequiredCaseIDs = []string{
 }
 
 type Contract struct {
-	Schema              string           `json:"schema"`
-	DenominatorID       string           `json:"denominator_id"`
-	FixedDenominator    int              `json:"fixed_denominator"`
-	Groups              []ContractGroup  `json:"groups"`
-	SelectionOrder      []string         `json:"selection_order"`
-	StatePrecedence     []string         `json:"state_precedence"`
-	UnknownRequired     []string         `json:"unknown_required_fields"`
-	ForbiddenInference  []string         `json:"forbidden_inference"`
-	ArtifactNames       []string         `json:"artifact_names"`
-	Cells               []ContractCell   `json:"cells"`
+	Schema             string          `json:"schema"`
+	DenominatorID      string          `json:"denominator_id"`
+	FixedDenominator   int             `json:"fixed_denominator"`
+	Groups             []ContractGroup `json:"groups"`
+	SelectionOrder     []string        `json:"selection_order"`
+	StatePrecedence    []string        `json:"state_precedence"`
+	UnknownRequired    []string        `json:"unknown_required_fields"`
+	ForbiddenInference []string        `json:"forbidden_inference"`
+	ArtifactNames      []string        `json:"artifact_names"`
+	Cells              []ContractCell  `json:"cells"`
 }
 
 type ContractGroup struct {
@@ -86,8 +86,8 @@ type ContractCell struct {
 }
 
 type Program struct {
-	Schema     string   `json:"schema"`
-	Activities []string `json:"activities"`
+	Schema     string          `json:"schema"`
+	Activities []string        `json:"activities"`
 	Candidates []CandidateDecl `json:"candidates"`
 }
 
@@ -97,29 +97,29 @@ type CandidateDecl struct {
 }
 
 type IRNode struct {
-	ID       string `json:"id"`
-	Activity string `json:"activity"`
-	SourceLine int `json:"source_line"`
-	Group    string `json:"group"`
-	Binding  string `json:"binding"`
-	Evidence string `json:"evidence"`
+	ID         string `json:"id"`
+	Activity   string `json:"activity"`
+	SourceLine int    `json:"source_line"`
+	Group      string `json:"group"`
+	Binding    string `json:"binding"`
+	Evidence   string `json:"evidence"`
 }
 
 type SemanticIR struct {
-	Schema         string   `json:"schema"`
-	SourceDigest   string   `json:"source_digest"`
-	ContractDigest string   `json:"contract_digest"`
-	Nodes          []IRNode `json:"nodes"`
+	Schema         string          `json:"schema"`
+	SourceDigest   string          `json:"source_digest"`
+	ContractDigest string          `json:"contract_digest"`
+	Nodes          []IRNode        `json:"nodes"`
 	Candidates     []CandidateDecl `json:"candidates"`
 }
 
 type ComparatorArtifact struct {
-	Schema         string   `json:"schema"`
-	Algorithm      string   `json:"algorithm"`
-	SourceDigest   string   `json:"source_digest"`
-	SemanticIRDigest string  `json:"semantic_ir_digest"`
-	ContractDigest string   `json:"contract_digest"`
-	BoundCells     []string `json:"bound_cells"`
+	Schema           string   `json:"schema"`
+	Algorithm        string   `json:"algorithm"`
+	SourceDigest     string   `json:"source_digest"`
+	SemanticIRDigest string   `json:"semantic_ir_digest"`
+	ContractDigest   string   `json:"contract_digest"`
+	BoundCells       []string `json:"bound_cells"`
 }
 
 type Corpus struct {
@@ -128,19 +128,19 @@ type Corpus struct {
 }
 
 type CorpusCase struct {
-	CaseID          string       `json:"case_id"`
-	Class           string       `json:"class"`
-	ScenarioID      string       `json:"scenario_id"`
-	FixtureDigest   string       `json:"fixture_digest"`
-	SourceDigest    string       `json:"source_digest"`
-	ToolchainDigest string       `json:"toolchain_digest"`
-	EvaluatorDigest string       `json:"evaluator_digest"`
-	TrialIndex      int          `json:"trial_index"`
-	Before          *RawObservation `json:"before"`
-	After           *RawObservation `json:"after"`
-	ExpectedSemantic []string     `json:"expected_semantic"`
-	ActualSemantic   []string     `json:"actual_semantic"`
-	Fault           string       `json:"fault,omitempty"`
+	CaseID           string          `json:"case_id"`
+	Class            string          `json:"class"`
+	ScenarioID       string          `json:"scenario_id"`
+	FixtureDigest    string          `json:"fixture_digest"`
+	SourceDigest     string          `json:"source_digest"`
+	ToolchainDigest  string          `json:"toolchain_digest"`
+	EvaluatorDigest  string          `json:"evaluator_digest"`
+	TrialIndex       int             `json:"trial_index"`
+	Before           *RawObservation `json:"before"`
+	After            *RawObservation `json:"after"`
+	ExpectedSemantic []string        `json:"expected_semantic"`
+	ActualSemantic   []string        `json:"actual_semantic"`
+	Fault            string          `json:"fault,omitempty"`
 }
 
 type RawObservation struct {
@@ -222,10 +222,10 @@ type UnknownDetail struct {
 }
 
 type CellResult struct {
-	Ordinal int    `json:"ordinal"`
-	ID      string `json:"id"`
-	Group   string `json:"group"`
-	State   string `json:"state"`
+	Ordinal  int    `json:"ordinal"`
+	ID       string `json:"id"`
+	Group    string `json:"group"`
+	State    string `json:"state"`
 	Evidence string `json:"evidence"`
 }
 
@@ -271,59 +271,59 @@ type TestManifestArtifact struct {
 }
 
 type SemanticDiffRecord struct {
-	CaseID       string   `json:"case_id"`
-	Expected     []string `json:"expected"`
-	Actual       []string `json:"actual"`
-	ExactEqual   bool     `json:"exact_equal"`
-	State        string   `json:"state"`
-	Counterexample string `json:"counterexample"`
+	CaseID         string   `json:"case_id"`
+	Expected       []string `json:"expected"`
+	Actual         []string `json:"actual"`
+	ExactEqual     bool     `json:"exact_equal"`
+	State          string   `json:"state"`
+	Counterexample string   `json:"counterexample"`
 }
 
 type SemanticDiffArtifact struct {
-	Schema string                `json:"schema"`
+	Schema string               `json:"schema"`
 	Cases  []SemanticDiffRecord `json:"cases"`
 }
 
 type ReplayReceiptRecord struct {
-	CaseID           string `json:"case_id"`
-	FirstDigest      string `json:"first_digest"`
-	ReplayedDigest   string `json:"replayed_digest"`
-	ReplayEqual      bool   `json:"replay_equal"`
+	CaseID             string `json:"case_id"`
+	FirstDigest        string `json:"first_digest"`
+	ReplayedDigest     string `json:"replayed_digest"`
+	ReplayEqual        bool   `json:"replay_equal"`
 	VerifiedCaseDigest string `json:"verified_case_digest"`
 }
 
 type ReplayReceiptArtifact struct {
-	Schema string                 `json:"schema"`
-	Cases  []ReplayReceiptRecord  `json:"cases"`
+	Schema string                `json:"schema"`
+	Cases  []ReplayReceiptRecord `json:"cases"`
 }
 
 type ComparisonManifest struct {
-	Schema                   string        `json:"schema"`
-	SourcePath               string        `json:"source_path"`
-	SourceDigest             string        `json:"source_digest"`
-	SemanticIRDigest         string        `json:"semantic_ir_digest"`
-	GeneratedComparatorDigest string       `json:"generated_comparator_digest"`
-	ContractDigest           string        `json:"contract_digest"`
-	CorpusDigest             string        `json:"corpus_digest"`
-	FixedDenominator         int           `json:"fixed_denominator"`
-	CaseCount                int           `json:"case_count"`
-	ArtifactCount            int           `json:"artifact_count"`
-	ArtifactNames            []string      `json:"artifact_names"`
-	CIRuntime                RuntimeMetrics `json:"ci_runtime"`
-	RepositoryWrites         int           `json:"repository_writes"`
-	LocalTestExecutions      int           `json:"local_test_executions"`
-	CrossProjectRequiredGates int          `json:"cross_project_required_gates"`
+	Schema                    string         `json:"schema"`
+	SourcePath                string         `json:"source_path"`
+	SourceDigest              string         `json:"source_digest"`
+	SemanticIRDigest          string         `json:"semantic_ir_digest"`
+	GeneratedComparatorDigest string         `json:"generated_comparator_digest"`
+	ContractDigest            string         `json:"contract_digest"`
+	CorpusDigest              string         `json:"corpus_digest"`
+	FixedDenominator          int            `json:"fixed_denominator"`
+	CaseCount                 int            `json:"case_count"`
+	ArtifactCount             int            `json:"artifact_count"`
+	ArtifactNames             []string       `json:"artifact_names"`
+	CIRuntime                 RuntimeMetrics `json:"ci_runtime"`
+	RepositoryWrites          int            `json:"repository_writes"`
+	LocalTestExecutions       int            `json:"local_test_executions"`
+	CrossProjectRequiredGates int            `json:"cross_project_required_gates"`
 }
 
 type Pipeline struct {
-	Contract Contract
-	Corpus Corpus
-	IR SemanticIR
+	Contract   Contract
+	Corpus     Corpus
+	IR         SemanticIR
 	Comparator ComparatorArtifact
-	Results []CaseResult
-	Before []ReceiptRecord
-	After []ReceiptRecord
-	Runtime RuntimeMetrics
+	Results    []CaseResult
+	Before     []ReceiptRecord
+	After      []ReceiptRecord
+	Runtime    RuntimeMetrics
 	SourcePath string
 }
 
@@ -439,22 +439,22 @@ func Compile(source string, contract Contract, contractDigest string) (SemanticI
 	}
 	sourceDigest := DigestBytes([]byte(source))
 	ir := SemanticIR{
-		Schema: "gooo/adoption-regression/semantic-ir/v1",
-		SourceDigest: sourceDigest,
+		Schema:         "gooo/adoption-regression/semantic-ir/v1",
+		SourceDigest:   sourceDigest,
 		ContractDigest: contractDigest,
-		Candidates: program.Candidates,
+		Candidates:     program.Candidates,
 	}
 	for ordinal, cell := range contract.Cells {
 		if cell.Activity != program.Activities[ordinal] {
 			return SemanticIR{}, fmt.Errorf("activity %q is not bound to source activity %q", cell.Activity, program.Activities[ordinal])
 		}
 		ir.Nodes = append(ir.Nodes, IRNode{
-			ID: "ir/" + strconv.Itoa(cell.Ordinal) + "/" + cell.ID,
-			Activity: cell.Activity,
+			ID:         "ir/" + strconv.Itoa(cell.Ordinal) + "/" + cell.ID,
+			Activity:   cell.Activity,
 			SourceLine: sourceLineForActivity(source, cell.Activity),
-			Group: cell.Group,
-			Binding: cell.Binding,
-			Evidence: cell.Evidence,
+			Group:      cell.Group,
+			Binding:    cell.Binding,
+			Evidence:   cell.Evidence,
 		})
 	}
 	return ir, nil
@@ -478,18 +478,18 @@ func ValidateCorpus(corpus Corpus, sourceDigest string) error {
 		return fmt.Errorf("canonical corpus must contain exactly 12 cases")
 	}
 	expected := map[string]string{
-		"closed-exact-comparable": StateClosed,
-		"closed-deterministic-replay": StateClosed,
-		"closed-semantic-non-regression": StateClosed,
-		"unknown-missing-pair": StateUnknown,
-		"unknown-toolchain-mismatch": StateUnknown,
-		"unknown-cache-state-ambiguous": StateUnknown,
-		"unknown-missing-test-manifest": StateUnknown,
+		"closed-exact-comparable":         StateClosed,
+		"closed-deterministic-replay":     StateClosed,
+		"closed-semantic-non-regression":  StateClosed,
+		"unknown-missing-pair":            StateUnknown,
+		"unknown-toolchain-mismatch":      StateUnknown,
+		"unknown-cache-state-ambiguous":   StateUnknown,
+		"unknown-missing-test-manifest":   StateUnknown,
 		"refuted-semantic-counterexample": StateRefuted,
-		"refuted-evaluator-mismatch": StateRefuted,
-		"refuted-source-mismatch": StateRefuted,
-		"refuted-scenario-substitution": StateRefuted,
-		"refuted-hidden-skipped-test": StateRefuted,
+		"refuted-evaluator-mismatch":      StateRefuted,
+		"refuted-source-mismatch":         StateRefuted,
+		"refuted-scenario-substitution":   StateRefuted,
+		"refuted-hidden-skipped-test":     StateRefuted,
 	}
 	seen := map[string]bool{}
 	counts := map[string]int{}
@@ -528,16 +528,16 @@ func normalizeObservation(item CorpusCase, raw *RawObservation, sourceDigest str
 		return nil
 	}
 	receipt := &Receipt{
-		Schema: "gooo/adoption-regression/receipt/v1",
-		CaseID: item.CaseID,
-		ScenarioID: item.ScenarioID,
-		FixtureDigest: item.FixtureDigest,
-		SourceDigest: sourceDigest,
+		Schema:          "gooo/adoption-regression/receipt/v1",
+		CaseID:          item.CaseID,
+		ScenarioID:      item.ScenarioID,
+		FixtureDigest:   item.FixtureDigest,
+		SourceDigest:    sourceDigest,
 		ToolchainDigest: item.ToolchainDigest,
 		EvaluatorDigest: item.EvaluatorDigest,
-		TrialIndex: item.TrialIndex,
-		Metrics: *raw.Metrics,
-		TestManifest: raw.TestManifest,
+		TrialIndex:      item.TrialIndex,
+		Metrics:         *raw.Metrics,
+		TestManifest:    raw.TestManifest,
 	}
 	if raw.ScenarioID != "" {
 		receipt.ScenarioID = raw.ScenarioID
@@ -590,22 +590,22 @@ func validateReceiptInput(receipt *Receipt) error {
 }
 
 type caseEvidence struct {
-	CaseID string `json:"case_id"`
-	Before *Receipt `json:"before"`
-	After *Receipt `json:"after"`
+	CaseID   string   `json:"case_id"`
+	Before   *Receipt `json:"before"`
+	After    *Receipt `json:"after"`
 	Expected []string `json:"expected"`
-	Actual []string `json:"actual"`
-	Fault string `json:"fault"`
+	Actual   []string `json:"actual"`
+	Fault    string   `json:"fault"`
 }
 
 func caseDigest(item CorpusCase, before, after *Receipt) (string, error) {
 	return DigestJSON(caseEvidence{
-		CaseID: item.CaseID,
-		Before: before,
-		After: after,
+		CaseID:   item.CaseID,
+		Before:   before,
+		After:    after,
 		Expected: item.ExpectedSemantic,
-		Actual: item.ActualSemantic,
-		Fault: item.Fault,
+		Actual:   item.ActualSemantic,
+		Fault:    item.Fault,
 	})
 }
 
@@ -665,11 +665,11 @@ func decide(item CorpusCase, contract Contract, before, after *Receipt) (CaseRes
 	hidden := hiddenSkipped(before) || hiddenSkipped(after)
 
 	result := CaseResult{
-		CaseID: item.CaseID,
-		Class: item.Class,
-		State: StateClosed,
-		Claim: DecisionClosed,
-		Reason: "expected_actual_exact_equality_and_exact_pair_conditions",
+		CaseID:             item.CaseID,
+		Class:              item.Class,
+		State:              StateClosed,
+		Claim:              DecisionClosed,
+		Reason:             "expected_actual_exact_equality_and_exact_pair_conditions",
 		VerifiedCaseDigest: digest,
 	}
 	unknownReason := ""
@@ -716,12 +716,12 @@ func decide(item CorpusCase, contract Contract, before, after *Receipt) (CaseRes
 	}
 	if result.State == StateUnknown {
 		result.Unknown = &UnknownDetail{
-			Stage: "COMPARABILITY",
-			Step: unknownStep,
-			Reason: unknownReason,
-			UnknownClass: unknownClass,
+			Stage:         "COMPARABILITY",
+			Step:          unknownStep,
+			Reason:        unknownReason,
+			UnknownClass:  unknownClass,
 			NextOperation: unknownNext,
-			BlockedBy: []string{item.CaseID},
+			BlockedBy:     []string{item.CaseID},
 		}
 	}
 	if pair && cache && before != nil && after != nil {
@@ -733,9 +733,9 @@ func decide(item CorpusCase, contract Contract, before, after *Receipt) (CaseRes
 
 func deltas(before, after Metrics) []ObservedDelta {
 	values := []struct {
-		name string
+		name   string
 		before int64
-		after int64
+		after  int64
 	}{
 		{"build_wall_ms", before.BuildWallMs, after.BuildWallMs},
 		{"test_wall_ms", before.TestWallMs, after.TestWallMs},
@@ -913,12 +913,12 @@ func Run(sourcePath, contractPath, corpusPath, runtimePath, outputDir string) er
 		boundCells = append(boundCells, node.ID)
 	}
 	comparator := ComparatorArtifact{
-		Schema: "gooo/adoption-regression/generated-comparator/v1",
-		Algorithm: "exact-six-field-pair-semantic-equality-v1",
-		SourceDigest: sourceDigest,
+		Schema:           "gooo/adoption-regression/generated-comparator/v1",
+		Algorithm:        "exact-six-field-pair-semantic-equality-v1",
+		SourceDigest:     sourceDigest,
 		SemanticIRDigest: irDigest,
-		ContractDigest: contractDigest,
-		BoundCells: boundCells,
+		ContractDigest:   contractDigest,
+		BoundCells:       boundCells,
 	}
 	comparatorDigest, err := DigestJSON(comparator)
 	if err != nil {
@@ -950,20 +950,20 @@ func Run(sourcePath, contractPath, corpusPath, runtimePath, outputDir string) er
 	}
 
 	comparison := ComparisonManifest{
-		Schema: "gooo/adoption-regression/comparison-manifest/v1",
-		SourcePath: filepath.ToSlash(sourcePath),
-		SourceDigest: sourceDigest,
-		SemanticIRDigest: irDigest,
+		Schema:                    "gooo/adoption-regression/comparison-manifest/v1",
+		SourcePath:                filepath.ToSlash(sourcePath),
+		SourceDigest:              sourceDigest,
+		SemanticIRDigest:          irDigest,
 		GeneratedComparatorDigest: comparatorDigest,
-		ContractDigest: contractDigest,
-		CorpusDigest: corpusDigest,
-		FixedDenominator: 16,
-		CaseCount: 12,
-		ArtifactCount: 7,
-		ArtifactNames: append([]string(nil), ArtifactNames...),
-		CIRuntime: runtime,
-		RepositoryWrites: 0,
-		LocalTestExecutions: 0,
+		ContractDigest:            contractDigest,
+		CorpusDigest:              corpusDigest,
+		FixedDenominator:          16,
+		CaseCount:                 12,
+		ArtifactCount:             7,
+		ArtifactNames:             append([]string(nil), ArtifactNames...),
+		CIRuntime:                 runtime,
+		RepositoryWrites:          0,
+		LocalTestExecutions:       0,
 		CrossProjectRequiredGates: 0,
 	}
 	beforeArtifact := ReceiptArtifact{Schema: "gooo/adoption-regression/before-receipt/v1", Cases: pipeline.Before}
@@ -981,19 +981,37 @@ func Run(sourcePath, contractPath, corpusPath, runtimePath, outputDir string) er
 	testManifestArtifact := TestManifestArtifact{Schema: "gooo/adoption-regression/test-manifest/v1", Cases: manifestCases}
 	semanticArtifact := SemanticDiffArtifact{Schema: "gooo/adoption-regression/semantic-diff/v1", Cases: semanticCases}
 	replayArtifact := ReplayReceiptArtifact{Schema: "gooo/adoption-regression/replay-receipt/v1", Cases: replayCases}
-	if err := writeArtifact(outputDir, ArtifactNames[0], comparison); err != nil { return err }
-	if err := writeArtifact(outputDir, ArtifactNames[1], beforeArtifact); err != nil { return err }
-	if err := writeArtifact(outputDir, ArtifactNames[2], afterArtifact); err != nil { return err }
-	if err := writeArtifact(outputDir, ArtifactNames[3], testManifestArtifact); err != nil { return err }
-	if err := writeArtifact(outputDir, ArtifactNames[4], semanticArtifact); err != nil { return err }
-	if err := writeArtifact(outputDir, ArtifactNames[5], replayArtifact); err != nil { return err }
+	if err := writeArtifact(outputDir, ArtifactNames[0], comparison); err != nil {
+		return err
+	}
+	if err := writeArtifact(outputDir, ArtifactNames[1], beforeArtifact); err != nil {
+		return err
+	}
+	if err := writeArtifact(outputDir, ArtifactNames[2], afterArtifact); err != nil {
+		return err
+	}
+	if err := writeArtifact(outputDir, ArtifactNames[3], testManifestArtifact); err != nil {
+		return err
+	}
+	if err := writeArtifact(outputDir, ArtifactNames[4], semanticArtifact); err != nil {
+		return err
+	}
+	if err := writeArtifact(outputDir, ArtifactNames[5], replayArtifact); err != nil {
+		return err
+	}
 	report := buildReport(comparison, pipeline.Results)
-	if err := os.WriteFile(filepath.Join(outputDir, ArtifactNames[6]), []byte(report), 0o644); err != nil { return err }
+	if err := os.WriteFile(filepath.Join(outputDir, ArtifactNames[6]), []byte(report), 0o644); err != nil {
+		return err
+	}
 	entries, err := os.ReadDir(outputDir)
-	if err != nil { return err }
+	if err != nil {
+		return err
+	}
 	actual := make([]string, 0, len(entries))
 	for _, entry := range entries {
-		if entry.IsDir() { return fmt.Errorf("artifact output contains a directory %q", entry.Name()) }
+		if entry.IsDir() {
+			return fmt.Errorf("artifact output contains a directory %q", entry.Name())
+		}
 		actual = append(actual, entry.Name())
 	}
 	sort.Strings(actual)
@@ -1006,7 +1024,9 @@ func Run(sourcePath, contractPath, corpusPath, runtimePath, outputDir string) er
 }
 
 func manifestOf(receipt *Receipt) *TestManifest {
-	if receipt == nil || receipt.TestManifest == nil { return nil }
+	if receipt == nil || receipt.TestManifest == nil {
+		return nil
+	}
 	return receipt.TestManifest
 }
 
@@ -1016,7 +1036,9 @@ func buildReport(comparison ComparisonManifest, results []CaseResult) string {
 	b.WriteString("This report contains exact paired observations, semantic equality, and explicit state evidence. Integer fields are shown as raw before/after values with an `OBSERVED_DELTA`; no generalized claim is emitted.\n\n")
 	fmt.Fprintf(&b, "- fixed denominator: %d\n- cases: %d\n- state precedence: REFUTED > UNKNOWN > CLOSED\n- artifact count: %d\n- CI run ID: %s\n- CI job ID: %s\n- build_wall_ms: %d\n- test_wall_ms: %d\n- peak_rss_kib: %d\n- tests_discovered: %d\n- tests_executed: %d\n- tests_skipped: %d\n- tests_cached: %d\n- cache_hit: %t\n- directories: %d\n- files: %d\n- physical_lines: %d\n- go_lines: %d\n- gooo_lines: %d\n- output_artifact_count: %d\n- repository_writes: %d\n- local_test_executions: %d\n- cross_project_required_gates: %d\n\n", comparison.FixedDenominator, comparison.CaseCount, comparison.ArtifactCount, comparison.CIRuntime.CIRunID, comparison.CIRuntime.CIJobID, comparison.CIRuntime.BuildWallMs, comparison.CIRuntime.TestWallMs, comparison.CIRuntime.PeakRSSKib, comparison.CIRuntime.TestsDiscovered, comparison.CIRuntime.TestsExecuted, comparison.CIRuntime.TestsSkipped, comparison.CIRuntime.TestsCached, comparison.CIRuntime.CacheHit, comparison.CIRuntime.Directories, comparison.CIRuntime.Files, comparison.CIRuntime.PhysicalLines, comparison.CIRuntime.GoLines, comparison.CIRuntime.GoooLines, comparison.CIRuntime.OutputArtifactCount, comparison.RepositoryWrites, comparison.LocalTestExecutions, comparison.CrossProjectRequiredGates)
 	b.WriteString("## Artifact inventory\n\n")
-	for _, name := range ArtifactNames { fmt.Fprintf(&b, "- `%s`\n", name) }
+	for _, name := range ArtifactNames {
+		fmt.Fprintf(&b, "- `%s`\n", name)
+	}
 	b.WriteString("\n## Case decisions\n\n")
 	b.WriteString("| case_id | class | state | claim | reason |\n|---|---|---|---|---|\n")
 	for _, result := range results {
@@ -1026,14 +1048,18 @@ func buildReport(comparison ComparisonManifest, results []CaseResult) string {
 	for _, result := range results {
 		fmt.Fprintf(&b, "### `%s`\n\n", result.CaseID)
 		b.WriteString("| ordinal | id | group | state | evidence |\n|---:|---|---|---|---|\n")
-		for _, cell := range result.Cells { fmt.Fprintf(&b, "| %d | `%s` | `%s` | `%s` | `%s` |\n", cell.Ordinal, cell.ID, cell.Group, cell.State, cell.Evidence) }
+		for _, cell := range result.Cells {
+			fmt.Fprintf(&b, "| %d | `%s` | `%s` | `%s` | `%s` |\n", cell.Ordinal, cell.ID, cell.Group, cell.State, cell.Evidence)
+		}
 		if result.Unknown != nil {
 			fmt.Fprintf(&b, "\nUnknown detail: stage=%s; step=%s; reason=%s; unknown_class=%s; next_operation=%s; blocked_by=%s\n", result.Unknown.Stage, result.Unknown.Step, result.Unknown.Reason, result.Unknown.UnknownClass, result.Unknown.NextOperation, strings.Join(result.Unknown.BlockedBy, ","))
 		}
 		if len(result.ObservedDeltas) > 0 {
 			b.WriteString("\nObserved integer deltas:\n\n")
 			b.WriteString("| metric | before | after | OBSERVED_DELTA |\n|---|---:|---:|---:|\n")
-			for _, delta := range result.ObservedDeltas { fmt.Fprintf(&b, "| `%s` | %d | %d | %d |\n", delta.Metric, delta.Before, delta.After, delta.Delta) }
+			for _, delta := range result.ObservedDeltas {
+				fmt.Fprintf(&b, "| `%s` | %d | %d | %d |\n", delta.Metric, delta.Before, delta.After, delta.Delta)
+			}
 		}
 		b.WriteString("\n")
 	}
@@ -1041,38 +1067,56 @@ func buildReport(comparison ComparisonManifest, results []CaseResult) string {
 }
 
 func equalStrings(left, right []string) bool {
-	if len(left) != len(right) { return false }
-	for i := range left { if left[i] != right[i] { return false } }
+	if len(left) != len(right) {
+		return false
+	}
+	for i := range left {
+		if left[i] != right[i] {
+			return false
+		}
+	}
 	return true
 }
 
 func ValidateOutputDir(path string) error {
 	entries, err := os.ReadDir(path)
-	if err != nil { return err }
+	if err != nil {
+		return err
+	}
 	names := make([]string, 0, len(entries))
-	for _, entry := range entries { names = append(names, entry.Name()) }
+	for _, entry := range entries {
+		names = append(names, entry.Name())
+	}
 	sort.Strings(names)
 	expected := append([]string(nil), ArtifactNames...)
 	sort.Strings(expected)
-	if !equalStrings(names, expected) { return fmt.Errorf("unexpected output inventory: %v", names) }
+	if !equalStrings(names, expected) {
+		return fmt.Errorf("unexpected output inventory: %v", names)
+	}
 	return nil
 }
 
 func ReadRuntime(path string) (RuntimeMetrics, error) {
 	var runtime RuntimeMetrics
-	if _, err := readJSON(path, &runtime); err != nil { return runtime, err }
+	if _, err := readJSON(path, &runtime); err != nil {
+		return runtime, err
+	}
 	return runtime, ValidateRuntime(runtime)
 }
 
 func ReadNDJSON(path string) ([]map[string]any, error) {
 	file, err := os.Open(path)
-	if err != nil { return nil, err }
+	if err != nil {
+		return nil, err
+	}
 	defer file.Close()
 	var rows []map[string]any
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		var row map[string]any
-		if err := json.Unmarshal(scanner.Bytes(), &row); err != nil { return nil, err }
+		if err := json.Unmarshal(scanner.Bytes(), &row); err != nil {
+			return nil, err
+		}
 		rows = append(rows, row)
 	}
 	return rows, scanner.Err()

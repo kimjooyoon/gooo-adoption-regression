@@ -6,13 +6,13 @@ func boolPointer(value bool) *bool { return &value }
 
 func receiptForTest() *Receipt {
 	return &Receipt{
-		ScenarioID: "scenario/test",
-		FixtureDigest: "fixture",
-		SourceDigest: "source",
+		ScenarioID:      "scenario/test",
+		FixtureDigest:   "fixture",
+		SourceDigest:    "source",
 		ToolchainDigest: "toolchain",
 		EvaluatorDigest: "evaluator",
-		TrialIndex: 1,
-		Metrics: Metrics{CacheHit: boolPointer(false)},
+		TrialIndex:      1,
+		Metrics:         Metrics{CacheHit: boolPointer(false)},
 	}
 }
 

@@ -6,7 +6,7 @@ It reports exact paired raw integers and semantic equality. It does not infer a 
 
 The released contract has a fixed denominator of 16 cells: four each for `INSTRUMENT`, `COMPARABILITY`, `SEMANTIC_REGRESSION`, and `PUBLISH`. The canonical corpus contains 12 cases: 3 closed, 4 unknown, and 5 refuted. State precedence is `REFUTED > UNKNOWN > CLOSED`.
 
-All build, test, and conformance execution is performed in GitHub Actions. The runner creates two receipts from the same inputs and compares all seven output artifacts byte-for-byte. The final output inventory is:
+All format, build, test, vet, and conformance execution is performed in GitHub Actions. The runner creates two receipts from the same inputs and compares all seven output artifacts byte-for-byte. The final output inventory is:
 
 `comparison-manifest.json`, `before-receipt.json`, `after-receipt.json`, `test-manifest.json`, `semantic-diff.json`, `replay-receipt.json`, and `regression-report.md`.
 

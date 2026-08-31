@@ -24,9 +24,9 @@ func main() {
 		os.Exit(2)
 	}
 	for name, value := range map[string]string{
-		"source": *source,
-		"contract": *contract,
-		"corpus": *corpus,
+		"source":     *source,
+		"contract":   *contract,
+		"corpus":     *corpus,
 		"ci-runtime": *runtime,
 		"output-dir": *outputDir,
 	} {
