@@ -12,12 +12,13 @@ test_time="$ci_dir/test.time"
 test_json="$ci_dir/test.json"
 runtime_json="$ci_dir/runtime.json"
 binary="$ci_dir/gooo-adoption-regression"
-format_output="${RUNNER_TEMP}/gooo-format.patch"
+format_output="$ci_dir/gofmt.txt"
 
-find . -type f -name '*.go' -not -path './.git/*' -exec gofmt -w {} +
-git diff --binary -- '*.go' > "$format_output"
+find . -type f -name '*.go' -not -path './.git/*' -exec gofmt -l {} + > "$format_output"
 if [ -s "$format_output" ]; then
-  echo 'gofmt diagnostic patch created' >&2
+  echo 'gofmt check failed' >&2
+  cat "$format_output" >&2
+  exit 1
 fi
 
 /usr/bin/time -f '%e %M' -o "$build_time" go build -o "$binary" ./cmd/gooo-adoption-regression
@@ -73,6 +74,11 @@ if [ "$(find "$out_a" -type f | wc -l | tr -d ' ')" -ne 7 ]; then
   echo 'unexpected output artifact count' >&2
   exit 1
 fi
+if [ -n "$(git status --porcelain --untracked-files=all)" ]; then
+  echo 'repository changed during conformance' >&2
+  git status --porcelain --untracked-files=all >&2
+  exit 1
+fi
+
 printf 'GOOO_OUTPUT_DIR=%s\n' "$out_a" >> "$GITHUB_ENV"
 printf 'GOOO_RUNTIME_JSON=%s\n' "$runtime_json" >> "$GITHUB_ENV"
-printf 'GOOO_FORMAT_PATCH=%s\n' "$format_output" >> "$GITHUB_ENV"
