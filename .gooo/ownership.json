@@ -1,0 +1,9 @@
+{
+  "schema": "gooo/adoption-regression/ownership/v1",
+  "repository": "kimjooyoon/gooo-adoption-regression",
+  "role": "single_record_owner",
+  "record_scope": "adoption_before_after_observation_and_semantic_regression",
+  "repository_writes": 0,
+  "local_test_executions": 0,
+  "cross_project_required_gates": 0
+}

@@ -1,0 +1,18 @@
+program gooo-adoption-regression v1
+activity source_digest_observed INSTRUMENT DRIVER
+activity fixture_digest_observed INSTRUMENT DRIVER
+activity toolchain_digest_observed INSTRUMENT DRIVER
+activity evaluator_digest_observed INSTRUMENT DRIVER
+activity scenario_id_equal COMPARABILITY DRIVER
+activity trial_index_equal COMPARABILITY DRIVER
+activity before_after_pair_present COMPARABILITY PAIR
+activity cache_state_comparable COMPARABILITY PAIR
+activity expected_actual_exact_equal SEMANTIC_REGRESSION SEMANTIC
+activity counterexample_preserved SEMANTIC_REGRESSION SEMANTIC
+activity deterministic_receipt_replay SEMANTIC_REGRESSION REPLAY
+activity test_manifest_coverage SEMANTIC_REGRESSION TEST
+activity observed_integer_deltas PUBLISH METRIC
+activity exact_metrics_preserved PUBLISH METRIC
+activity output_artifact_inventory PUBLISH ARTIFACT
+activity human_report_emitted PUBLISH REPORT
+candidate canonical_comparator comparator_v1

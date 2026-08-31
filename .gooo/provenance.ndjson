@@ -1,0 +1,1 @@
+{"event":"BOOTSTRAP","repository":"kimjooyoon/gooo-adoption-regression","record_kind":"single_record_owner","source":"examples/adoption-regression.gooo","contract":"contracts/adoption-regression-denominator-v1.json","corpus":"examples/canonical-corpus.json","repository_writes":0,"local_test_executions":0,"cross_project_required_gates":0}

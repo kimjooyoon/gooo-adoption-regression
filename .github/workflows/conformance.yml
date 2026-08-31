@@ -1,0 +1,36 @@
+name: conformance
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  conformance:
+    name: conformance
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Go 1.27
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.27.x'
+          cache: true
+      - name: Build, test, and deterministic conformance
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash scripts/ci-conformance.sh
+      - name: Upload seven receipt artifacts after main
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: actions/upload-artifact@v4
+        with:
+          name: adoption-regression-receipts-${{ github.sha }}
+          path: ${{ env.GOOO_OUTPUT_DIR }}
+          if-no-files-found: error
+          include-hidden-files: false

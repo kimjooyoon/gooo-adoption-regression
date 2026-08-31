@@ -1,0 +1,42 @@
+{
+  "schema": "gooo/adoption-regression/contract/v1",
+  "denominator_id": "adoption-regression-denominator-v1",
+  "fixed_denominator": 16,
+  "groups": [
+    {"id":"INSTRUMENT","count":4},
+    {"id":"COMPARABILITY","count":4},
+    {"id":"SEMANTIC_REGRESSION","count":4},
+    {"id":"PUBLISH","count":4}
+  ],
+  "selection_order": ["INSTRUMENT","COMPARABILITY","SEMANTIC_REGRESSION","PUBLISH"],
+  "state_precedence": ["REFUTED","UNKNOWN","CLOSED"],
+  "unknown_required_fields": ["stage","step","reason","unknown_class","next_operation","blocked_by"],
+  "forbidden_inference": ["AVERAGE","SCORE","PERCENTAGE","FAST","IMPROVED","GENERALIZED_CLAIM"],
+  "artifact_names": [
+    "comparison-manifest.json",
+    "before-receipt.json",
+    "after-receipt.json",
+    "test-manifest.json",
+    "semantic-diff.json",
+    "replay-receipt.json",
+    "regression-report.md"
+  ],
+  "cells": [
+    {"ordinal":1,"id":"SOURCE_DIGEST_OBSERVED","group":"INSTRUMENT","activity":"source_digest_observed","binding":"source_digest","evidence":"before_and_after_receipt"},
+    {"ordinal":2,"id":"FIXTURE_DIGEST_OBSERVED","group":"INSTRUMENT","activity":"fixture_digest_observed","binding":"fixture_digest","evidence":"before_and_after_receipt"},
+    {"ordinal":3,"id":"TOOLCHAIN_DIGEST_OBSERVED","group":"INSTRUMENT","activity":"toolchain_digest_observed","binding":"toolchain_digest","evidence":"before_and_after_receipt"},
+    {"ordinal":4,"id":"EVALUATOR_DIGEST_OBSERVED","group":"INSTRUMENT","activity":"evaluator_digest_observed","binding":"evaluator_digest","evidence":"before_and_after_receipt"},
+    {"ordinal":5,"id":"SCENARIO_ID_EQUAL","group":"COMPARABILITY","activity":"scenario_id_equal","binding":"scenario_id","evidence":"pair_identity"},
+    {"ordinal":6,"id":"TRIAL_INDEX_EQUAL","group":"COMPARABILITY","activity":"trial_index_equal","binding":"trial_index","evidence":"pair_identity"},
+    {"ordinal":7,"id":"BEFORE_AFTER_PAIR_PRESENT","group":"COMPARABILITY","activity":"before_after_pair_present","binding":"before_after","evidence":"pair_presence"},
+    {"ordinal":8,"id":"CACHE_STATE_COMPARABLE","group":"COMPARABILITY","activity":"cache_state_comparable","binding":"cache_hit","evidence":"pair_metrics"},
+    {"ordinal":9,"id":"EXPECTED_ACTUAL_EXACT_EQUAL","group":"SEMANTIC_REGRESSION","activity":"expected_actual_exact_equal","binding":"semantic_diff","evidence":"exact_array_equality"},
+    {"ordinal":10,"id":"COUNTEREXAMPLE_PRESERVED","group":"SEMANTIC_REGRESSION","activity":"counterexample_preserved","binding":"semantic_diff","evidence":"counterexample"},
+    {"ordinal":11,"id":"DETERMINISTIC_RECEIPT_REPLAY","group":"SEMANTIC_REGRESSION","activity":"deterministic_receipt_replay","binding":"replay_receipt","evidence":"byte_replay"},
+    {"ordinal":12,"id":"TEST_MANIFEST_COVERAGE","group":"SEMANTIC_REGRESSION","activity":"test_manifest_coverage","binding":"test_manifest","evidence":"discovered_executed_skipped"},
+    {"ordinal":13,"id":"OBSERVED_INTEGER_DELTAS","group":"PUBLISH","activity":"observed_integer_deltas","binding":"observed_deltas","evidence":"raw_integer_difference"},
+    {"ordinal":14,"id":"EXACT_METRICS_PRESERVED","group":"PUBLISH","activity":"exact_metrics_preserved","binding":"metrics","evidence":"before_after_receipt"},
+    {"ordinal":15,"id":"OUTPUT_ARTIFACT_INVENTORY","group":"PUBLISH","activity":"output_artifact_inventory","binding":"artifact_names","evidence":"fixed_seven_artifacts"},
+    {"ordinal":16,"id":"HUMAN_REPORT_EMITTED","group":"PUBLISH","activity":"human_report_emitted","binding":"regression-report.md","evidence":"human_report"}
+  ]
+}
