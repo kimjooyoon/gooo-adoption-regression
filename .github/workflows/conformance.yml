@@ -26,6 +26,13 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: bash scripts/ci-conformance.sh
+      - name: Upload temporary formatting patch
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: gooo-format-diagnostic-${{ github.sha }}
+          path: ${{ env.GOOO_FORMAT_PATCH }}
+          if-no-files-found: error
       - name: Upload seven receipt artifacts after main
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: actions/upload-artifact@v4
